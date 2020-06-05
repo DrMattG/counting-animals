@@ -1,0 +1,6 @@
+# counting-animals
+Code for counting animals in aerial images using variants of blob detection
+
+A few test images are located in the `\data` folder. Only the gentoo example currently works well. To get counts, first run the `count-onebox-xxx.r` script, which preprocesses the full image and counts animals in a small subregion of that images. This lets you play with parameter settings and see what works. To process the full image, run the `count-all-xxx.r` script. You may need to change parameter settings in those files.
+
+The process for the gentoos is (a) binarised image, (b) clip the image to contain only the region of interest (this is also dark, so will be confused with penguins), (c) invert the image (black -> white) and blur the image so that penguins appear as white blobs, (d) count the blobs. For the fish example the binarisation doesn't work well, because the light conditions darken from the top-right to bottom-left of the image, and the darker pixels get confused with fish. So some steps are omitted. Currently this is not working well. Might try manual clipping to just that region with fish?
